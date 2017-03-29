@@ -9,21 +9,23 @@
 import Foundation
 
 public struct WSTag: Hashable {
-
+    
     public let text: String
-
+    public var userDatas: [String:Any]? = nil
+    
+    
     public init(_ text: String) {
         self.text = text
     }
-
+    
     public var hashValue: Int {
         return self.text.hashValue
     }
-
+    
     public func equals(_ other: WSTag) -> Bool {
         return self.text == other.text
     }
-
+    
 }
 
 public func ==(lhs: WSTag, rhs: WSTag) -> Bool {

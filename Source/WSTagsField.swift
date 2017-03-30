@@ -418,6 +418,13 @@ open class WSTagsField: UIView {
         self.configureAddedView(tagView: tagView)
     }
     
+    open func replaceAllWithTagViews(_ tagViews: [WSTagView]) {
+        self.tagViews.forEach({$0.removeFromSuperview()})
+        self.tagViews.removeAll()
+        self.tags.removeAll()
+        self.addTagViews(tagViews)
+    }
+    
     open func addTagViews(_ tagViews: [WSTagView]) {
         tagViews.forEach { self.addTagView($0) }
     }
@@ -426,7 +433,7 @@ open class WSTagsField: UIView {
         if self.tags.contains(tagView.tagObject) {
             return
         }
-        
+        self.tags.append(tagView.tagObject)
         self.configureAddedView(tagView: tagView)
     }
     

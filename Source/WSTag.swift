@@ -23,6 +23,9 @@ public struct WSTag: Hashable {
     }
     
     public func equals(_ other: WSTag) -> Bool {
+        if self.userDatas != nil && other.userDatas != nil {
+            return self.text == other.text && NSDictionary(dictionary: self.userDatas!).isEqual(to: other.userDatas!)
+        }
         return self.text == other.text
     }
     

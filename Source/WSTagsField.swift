@@ -471,6 +471,7 @@ open class WSTagsField: UIScrollView {
         self.tagViews.forEach({$0.removeFromSuperview()})
         self.tagViews.removeAll()
         self.tags.removeAll()
+        updatePlaceholderTextVisibility()
         self.addTagViews(tagViews)
     }
 
